@@ -1,7 +1,7 @@
 import { Component, OnChanges, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ComponentState, IComponentStateActions, Store } from 'ng-state';
 import { BooksSearchStateActions } from '../states/books-search.actions';
 import { GoogleBooksService } from './../services/google-books';
-import { ComponentState, IComponentStateActions, Store } from 'ng-state';
 
 @ComponentState(BooksSearchStateActions)
 @Component({
@@ -11,7 +11,7 @@ import { ComponentState, IComponentStateActions, Store } from 'ng-state';
     <md-card>
       <md-card-title>Find a Book</md-card-title>
       <md-card-content>
-        <md-input placeholder="Search for a book" (keyup)="search($event.target.value)"></md-input>
+        <input class="md-input" mdInput placeholder="Search for a book" (keyup)="search($event.target.value)">
         <md-spinner [class.show]="state.loading | async"></md-spinner>
       </md-card-content>
     </md-card>
@@ -23,7 +23,7 @@ import { ComponentState, IComponentStateActions, Store } from 'ng-state';
       justify-content: center;
     }
 
-    md-input {
+    .md-input {
       width: 300px;
     }
 

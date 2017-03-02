@@ -25,7 +25,7 @@ import { StoreModule } from 'ng-state';
   imports: [
     CommonModule,
     BrowserModule,
-    MaterialModule.forRoot(),
+    MaterialModule,
     ComponentsModule,
     RouterModule.forRoot(routes, { useHash: true }),
     StoreModule.provideStore(initialState),
