@@ -1,0 +1,24 @@
+A1 {
+	cursor;
+	constructor(currentPath, index = null){
+		var path = [...currentPath, 'books'];
+		this.cursor = super(path);
+		return path;
+	}
+}
+
+
+A2 {
+	init(currentPath, index = null){
+		return [...currentPath, 'items']
+	}
+}
+
+A3 {
+	init(currentPath, index = null){
+		return [...currentPath, ['items', index]]
+	}
+}
+
+
+*ngFor="let k in items; index" [index]="index"
