@@ -1,25 +1,14 @@
+import { RouterHistoryTestComponent } from './components/router-history-test.component';
 import { Routes } from '@angular/router';
-
-import { FindBookPageComponent } from './containers/find-book-page';
-import { ViewBookPageComponent } from './containers/view-book-page';
-import { CollectionPageComponent } from './containers/collection-page';
-import { NotFoundPageComponent } from './containers/not-found-page';
+import { TodosComponent } from './components/todos.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: CollectionPageComponent
+    component: TodosComponent
   },
   {
-    path: 'book/find',
-    component: FindBookPageComponent
-  },
-  {
-    path: 'book/:id/:isFromCollection',
-    component: ViewBookPageComponent
-  },
-  {
-    path: '**',
-    component: NotFoundPageComponent
+    path: 'router-history-test',
+    component: RouterHistoryTestComponent
   }
 ];

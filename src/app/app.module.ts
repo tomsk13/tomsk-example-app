@@ -1,45 +1,29 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { AppComponent } from './components/app';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { FormsModule }   from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { RouterHistoryTestComponent } from './components/router-history-test.component';
 import { RouterModule } from '@angular/router';
-
-import { MaterialModule } from '@angular/material';
-
-import { ComponentsModule } from './components';
-
-import { AppComponent } from './containers/app';
-import { FindBookPageComponent } from './containers/find-book-page';
-import { ViewBookPageComponent } from './containers/view-book-page';
-import { SelectedBookPageComponent } from './containers/selected-book-page';
-import { CollectionPageComponent } from './containers/collection-page';
-import { NotFoundPageComponent } from './containers/not-found-page';
-
-import { GoogleBooksService } from './services/google-books';
-
-import { routes } from './routes';
-
-import { initialState } from './initial-state';
 import { StoreModule } from 'ng-state';
+import { TodoDescription } from './components/todo-description.component';
+import { TodosComponent } from './components/todos.component';
+import { initialState } from './initial-state';
+import { routes } from './routes';
 
 @NgModule({
   imports: [
     CommonModule,
     BrowserModule,
-    MaterialModule,
-    ComponentsModule,
+    FormsModule,
     RouterModule.forRoot(routes, { useHash: true }),
     StoreModule.provideStore(initialState),
   ],
   declarations: [
     AppComponent,
-    FindBookPageComponent,
-    SelectedBookPageComponent,
-    ViewBookPageComponent,
-    CollectionPageComponent,
-    NotFoundPageComponent
-  ],
-  providers: [
-    GoogleBooksService
+    TodosComponent,
+    TodoDescription,
+    RouterHistoryTestComponent
   ],
   bootstrap: [
     AppComponent
