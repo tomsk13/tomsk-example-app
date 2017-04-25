@@ -1,6 +1,6 @@
 #ng-state example application
 
-Example application utilizing @ng-state, showcasing possibilities of the library.
+Example application utilizing ng-state, showcasing possibilities of the library.
 You can find the live app [here](https://github.com/ng-state/example-app).
 
 This app is a todo collection manager.
