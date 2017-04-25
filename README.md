@@ -1,10 +1,9 @@
-#@ngrx example application
+#ng-state example application
 
 Example application utilizing @ng-state, showcasing possibilities of the library.
 You can find the live app [here](https://github.com/ng-state/example-app).
 
-This app is a book collection manager. Using the Google Books API, the user can search for
-books and add them to their collection.
+This app is a todo collection manager.
 [@angular/router](https://github.com/angular/angular) to manage navigation between routes;
 
 Built with [angular-cli](https://github.com/angular/angular-cli)
