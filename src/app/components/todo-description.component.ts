@@ -7,7 +7,7 @@ import { TodoStateActions } from '../actions/todo.actions';
 @Component({
   selector: 'todo-description',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `<div>{{ actions.todoDescription }}</div>`
+  template: `<div>{{ actions.todoDescription | async }}</div>`
 })
 export class TodoDescription {
   actions: TodoStateActions;

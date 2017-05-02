@@ -6,9 +6,10 @@ import { Store } from 'ng-state';
 export class TodoStateActions implements HasStore {
 
     store: Store<any>;
-    state: any;
 
     get todoDescription() {
-        return this.state.get('description');
+        return this.store.map(state => {
+           return state.get('description');
+        });
     }
 }

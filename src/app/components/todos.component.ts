@@ -26,4 +26,8 @@ export class TodosComponent {
     this.model.name = '';
     this.model.description = '';
   }
+
+  trackById(item: TodoModel) {
+    return item.id;
+  }
 }
