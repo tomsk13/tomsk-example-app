@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { ComponentState } from 'ng-state';
+import { ComponentState, IComponentStateActions } from 'ng-state';
 import { TodoModel } from './../actions/todo.model';
 import { TodosStateActions } from './../actions/todos.actions';
 
@@ -10,7 +10,7 @@ import { TodosStateActions } from './../actions/todos.actions';
   templateUrl: './todos.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TodosComponent {
+export class TodosComponent implements IComponentStateActions<TodosStateActions> {
   actions: TodosStateActions;
   model = {
     name: '',
