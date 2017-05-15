@@ -1,12 +1,8 @@
 import { HasStore, InjectStore } from 'ng-state';
-
-import { Store } from 'ng-state';
+import * as Immutable from 'immutable';
 
 @InjectStore(['${stateIndex}'])
-export class TodoStateActions implements HasStore {
-
-    store: Store<any>;
-
+export class TodoStateActions extends HasStore<Immutable.Map<any, any>> {
     get todoDescription() {
         return this.store.map(state => {
            return state.get('description');

@@ -1,14 +1,9 @@
-import * as Immutable from 'immutable';
-
 import { HasStore, InjectStore } from 'ng-state';
-
-import { Store } from 'ng-state';
+import * as Immutable from 'immutable';
 import { TodoModel } from './todo.model';
 
 @InjectStore('todos')
-export class TodosStateActions implements HasStore {
-
-    store: Store<any>;
+export class TodosStateActions extends HasStore<Immutable.List<any>> {
 
     addTodo(item: TodoModel) {
         this.store.update(state => {

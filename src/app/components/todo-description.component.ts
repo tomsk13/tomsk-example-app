@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { ComponentState, IComponentStateActions } from 'ng-state';
+import { ComponentState, HasStateActions } from 'ng-state';
 import { TodoStateActions } from '../actions/todo.actions';
 
 @ComponentState(TodoStateActions)
@@ -9,7 +9,5 @@ import { TodoStateActions } from '../actions/todo.actions';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `<div>{{ actions.todoDescription | async }}</div>`
 })
-export class TodoDescription implements IComponentStateActions<TodoStateActions> {
-  actions: TodoStateActions;
-  statePath: any;
+export class TodoDescription extends HasStateActions<TodoStateActions> {
 }
