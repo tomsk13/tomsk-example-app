@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ChangeDetectorRef } from '@angular/core';
 
 import { ComponentState, HasStateActions } from 'ng-state';
 import { TodoModel } from './../actions/todo.model';
@@ -15,6 +15,10 @@ export class TodosComponent extends HasStateActions<TodosStateActions> {
     name: '',
     description: ''
   };
+
+  constructor(cd: ChangeDetectorRef) {
+    super(cd);
+  }
 
   deleteItem(index: number) {
     this.actions.deleteTodo(index);

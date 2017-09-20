@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ChangeDetectorRef } from '@angular/core';
 
 import { ComponentState, HasStateActions } from 'ng-state';
 import { TodoStateActions } from '../actions/todo.actions';
@@ -7,7 +7,10 @@ import { TodoStateActions } from '../actions/todo.actions';
 @Component({
   selector: 'todo-description',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `<div>{{ actions.todoDescription | async }}</div>`
+  template: `<div>{{ actions.todoDescription }}</div>`
 })
 export class TodoDescription extends HasStateActions<TodoStateActions> {
+  constructor(cd: ChangeDetectorRef) {
+    super(cd);
+  }
 }

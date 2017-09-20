@@ -4,8 +4,6 @@ import * as Immutable from 'immutable';
 @InjectStore(['${stateIndex}'])
 export class TodoStateActions extends HasStore<Immutable.Map<any, any>> {
     get todoDescription() {
-        return this.store.map(state => {
-           return state.get('description');
-        });
+        return this.state.get('description');
     }
 }
