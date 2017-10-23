@@ -1,5 +1,3 @@
-export function initialState() {
-  return {
-    todos: []
-  };
-}
+export const initialState = {
+  todos: []
+ };

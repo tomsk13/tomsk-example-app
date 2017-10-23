@@ -11,13 +11,15 @@ import { TodosComponent } from './components/todos.component';
 import { initialState } from './initial-state';
 import { routes } from './routes';
 
+const isProd = false;
+
 @NgModule({
   imports: [
     CommonModule,
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(routes, { useHash: true }),
-    StoreModule.provideStore(initialState),
+    StoreModule.provideStore(initialState, isProd),
   ],
   declarations: [
     AppComponent,
