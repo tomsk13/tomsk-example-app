@@ -24,7 +24,7 @@ export class TodosComponent extends HasStateActions<TodosStateActions> {
     this.actions.deleteTodo(index);
   }
 
-  addItem(e: Event) {
+  addItem() {
     this.actions.addTodo({ name: this.model.name, description: this.model.description } as TodoModel);
     this.model.name = '';
     this.model.description = '';

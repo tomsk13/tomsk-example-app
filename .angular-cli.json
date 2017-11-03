@@ -6,7 +6,7 @@
   "apps": [
     {
       "root": "./",
-      "outDir": "dist",
+      "outDir": "./dist",
       "assets": [
         "./src/assets",
         "./src/favicon.ico"

@@ -1,22 +1,27 @@
 {
-  "compilerOptions": {
-    "sourceMap": true,
-    "declaration": false,
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "target": "es5",
-    "lib": [
-      "es2017",
-      "dom"
-    ],
-    "outDir": "../dist/app",
-    "module": "es2015",
-    "baseUrl": "",
-    "types": []
-  },
-  "exclude": [
-    "test.ts",
-    "**/*.spec.ts"
-  ]
+    "compilerOptions": {
+        "sourceMap": true,
+        "declaration": false,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "target": "es5",
+        "paths": {
+            "@angular/*": [
+                "../node_modules/@angular/*"
+            ]
+        },
+        "lib": [
+            "es2017",
+            "dom"
+        ],
+        // "outDir": "../dist/app",
+        "module": "es2015",
+        "baseUrl": "",
+        "types": []
+    },
+    "exclude": [
+        "test.ts",
+        "**/*.spec.ts"
+    ]
 }
