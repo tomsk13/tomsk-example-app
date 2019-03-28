@@ -11,11 +11,11 @@ import { StorageStateActions } from '../actions/storage.actions';
     template: `
   <div>
     ItemToStore value: {{ actions.deeperItem }} <br /><br />
-    <button (click)="add()">add</button>
-    <button (click)="remove()">remove</button>
-    <button (click)="clear()">clear</button>
-    <button (click)="load()">load</button>
-    <button (click)="change()">change</button>
+    <button class="btn btn-primary" style="margin-left: 5px;" (click)="add()">add</button>
+    <button class="btn btn-primary" style="margin-left: 5px;" (click)="remove()">remove</button>
+    <button class="btn btn-primary" style="margin-left: 5px;" (click)="clear()">clear</button>
+    <button class="btn btn-primary" style="margin-left: 5px;" (click)="load()">load</button>
+    <button class="btn btn-primary" style="margin-left: 5px;" (click)="change()">change</button>
   </div>
   `
 })
@@ -33,7 +33,10 @@ export class StorageTestComponent extends HasStateActions<StorageStateActions>  
     }
 
     add() {
-        this.actions.add();
+        this.actions.add().subscribe(state => {
+            console.log('2000ms delay save: ', state);
+        });
+
         this.saveOtherStateToSessionStorage();
     }
 

@@ -55,7 +55,7 @@
     "hammerjs": "^2.0.8",
     "immutable": "^3.8.1",
     "immutable-cursor": "^2.0.1",
-    "ng-state": "^4.3.2",
+    "ng-state": "^4.4.0",
     "ngx-take-until-destroy": "^5.4.0",
     "rxjs": "~6.3.2",
     "zone.js": "^0.8.26",

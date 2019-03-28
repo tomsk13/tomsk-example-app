@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Store, NgFormStateManager } from 'ng-state';
+import { Store, NgFormStateManager, ShoulUpdateStateParams } from 'ng-state';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-filters',
@@ -11,6 +12,8 @@ import { Store, NgFormStateManager } from 'ng-state';
 export class FiltersComponent implements OnInit {
     filters: FormGroup;
     ngFormStateManager: NgFormStateManager;
+
+    location: Observable<any>;
 
     constructor(private store: Store<any>) { }
 
@@ -24,8 +27,12 @@ export class FiltersComponent implements OnInit {
             location: new FormControl()
         });
 
+        this.location = this.store.select(['form', 'location']);
+
         this.ngFormStateManager = this.store.select(['form'])
-            .form.bind(this.filters);
+            .form.bind(this.filters)
+            .shouldUpdateState((params: ShoulUpdateStateParams) => true)
+            .onChange(state => {});
     }
 
     reset() {
