@@ -29,8 +29,8 @@ const isProd = false;
         BrowserAnimationsModule,
         FormsModule,
         ReactiveFormsModule,
-        RouterModule.forRoot(routes, { useHash: true }),
-        StoreModule.provideStore(initialState, isProd),
+        RouterModule.forRoot(routes),
+        StoreModule.provideStore(initialState, isProd, { debugger: { enableInitialDebugging: true } }),
     ],
     declarations: [
         AppComponent,

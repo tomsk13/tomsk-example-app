@@ -13,8 +13,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
         </nav>
         <router-outlet></router-outlet>
       </div>
-
-      <state-history></state-history>
   `
 })
 export class AppComponent {

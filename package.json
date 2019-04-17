@@ -17,7 +17,7 @@
     "build:server:prod": "ng run example-app:server:prod",
     "compile:server": "tsc -p server.tsconfig.json",
     "build:ssr:prod": "npm run build:prod && npm run build:server:prod && npm run compile:server",
-    "serve:ssr": "set NODE_ENV=production&&node dist/server"
+    "serve:ssr": "node dist/server"
   },
   "repository": {
     "type": "git",
@@ -55,7 +55,7 @@
     "hammerjs": "^2.0.8",
     "immutable": "^3.8.1",
     "immutable-cursor": "^2.0.1",
-    "ng-state": "^4.4.0",
+    "ng-state": "^5.0.0",
     "ngx-take-until-destroy": "^5.4.0",
     "rxjs": "~6.3.2",
     "zone.js": "^0.8.26",

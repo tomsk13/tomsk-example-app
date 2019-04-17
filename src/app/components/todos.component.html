@@ -1,9 +1,9 @@
 <div class="container">
   <form class="form-inline">
-    <label class="sr-only" htmlFor="inlineFormInput">Name</label>
+    <label class="sr-only" for="name">Name</label>
     <input type="text" name="name" [(ngModel)]="model.name" name="name" class="form-control mb-2 mr-sm-2 mb-sm-0" id="name" placeholder="Name" />
 
-    <label class="sr-only" htmlFor="inlineFormInputGroup">Username</label>
+    <label class="sr-only" for="descritpion">Description</label>
     <input type="text" name="description" [(ngModel)]="model.description" class="form-control mb-2 mr-sm-2 mb-sm-0" id="descritpion" placeholder="Description" />
 
     <button type="button" class="btn btn-primary" (click)="addItem()">Submit</button>
