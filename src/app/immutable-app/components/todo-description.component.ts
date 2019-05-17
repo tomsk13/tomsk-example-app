@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, ChangeDetectorRef } from '@angular/core';
 
-import { ComponentState, HasStateActions } from 'ng-state';
+import { ComponentState, HasStateActions } from '@ng-state/store';
 import { TodoStateActions } from '../actions/todo.actions';
 
 @ComponentState(TodoStateActions)

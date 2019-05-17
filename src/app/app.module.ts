@@ -1,24 +1,13 @@
-import { AppComponent } from './components/app';
+import { AppComponent } from './app';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TransferHttpCacheModule } from '@nguniversal/common';
-import { ServiceWorkerModule } from '@angular/service-worker';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-import { RouterHistoryTestComponent } from './components/router-history-test.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 import { RouterModule } from '@angular/router';
-import { StoreModule } from 'ng-state';
-import { TodoDescription } from './components/todo-description.component';
-import { TodosComponent } from './components/todos.component';
-import { initialState } from './initial-state';
-import { routes } from './routes';
+import { TransferHttpCacheModule } from '@nguniversal/common';
 import { environment } from '../environments/environment';
-import { ProductsComponent } from './products/products.component';
-import { FiltersComponent } from './products/filters/filters.component';
-import { StorageTestComponent } from './components/storage-test.component';
-
-const isProd = false;
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     imports: [
@@ -29,17 +18,14 @@ const isProd = false;
         BrowserAnimationsModule,
         FormsModule,
         ReactiveFormsModule,
-        RouterModule.forRoot(routes),
-        StoreModule.provideStore(initialState, isProd, { debugger: { enableInitialDebugging: true } }),
+        RouterModule.forRoot([
+            { path: '', pathMatch: 'full', redirectTo: 'immutable' },
+            { path: 'immutable', loadChildren: './immutable-app/immutable.module#ImmutableAppModule' },
+            { path: 'immer', loadChildren: './immer-app/immer.module#ImmerAppModule' }
+        ], { useHash: false })
     ],
     declarations: [
-        AppComponent,
-        TodosComponent,
-        TodoDescription,
-        RouterHistoryTestComponent,
-        StorageTestComponent,
-        ProductsComponent,
-        FiltersComponent
+        AppComponent
     ],
     bootstrap: [
         AppComponent

@@ -1,4 +1,4 @@
-import { Store, PersistStateManager, ComponentState, HasStateActions } from 'ng-state';
+import { Store, PersistStateManager, ComponentState, HasStateActions } from '@ng-state/store';
 import { ChangeDetectionStrategy, Component, ChangeDetectorRef } from '@angular/core';
 import { timer } from 'rxjs';
 import { tap, map } from 'rxjs/operators';

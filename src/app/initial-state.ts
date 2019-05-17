@@ -10,5 +10,6 @@ export const initialState = {
             notSpecified: false,
         },
         location: 'europe',
+        cars: ['volvo', 'opel']
     }
 };
