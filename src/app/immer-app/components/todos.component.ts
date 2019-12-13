@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, ChangeDetectorRef } from '@angular/core';
 import { TodoModel } from './../actions/todo.model';
 
-import { ComponentState, HasStateActions } from '@ng-state/store';
+import { ComponentState, HasStateActions, Store } from '@ng-state/store';
 import { Dispatcher } from '@ng-state/store';
 import { Subscription } from 'rxjs';
 import { TodosStateActions } from './../actions/todos.actions';
+import { todoService } from '../service';
 
 @ComponentState(TodosStateActions)
 @Component({
@@ -22,8 +23,10 @@ export class TodosComponent extends HasStateActions<TodosStateActions> {
 
     subscription: Subscription;
 
-    constructor(dispatcher: Dispatcher, cd: ChangeDetectorRef) {
+    constructor(dispatcher: Dispatcher, cd: ChangeDetectorRef, private storeRef: Store<any>, private myService: todoService) {
         super(cd);
+        
+        console.log(this.storeRef);
     }
 
     deleteItem(index: number) {

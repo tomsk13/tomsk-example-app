@@ -8,6 +8,8 @@ import { TransferHttpCacheModule } from '@nguniversal/common';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { todoService } from './immer-app/service';
+import { Store } from '@ng-state/store';
 
 @NgModule({
     imports: [
@@ -19,7 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         FormsModule,
         ReactiveFormsModule,
         RouterModule.forRoot([
-            { path: '', pathMatch: 'full', redirectTo: 'immutable' },
+            { path: '', pathMatch: 'full', redirectTo: 'immer' },
             { path: 'immutable', loadChildren: './immutable-app/immutable.module#ImmutableAppModule' },
             { path: 'immer', loadChildren: './immer-app/immer.module#ImmerAppModule' }
         ], { useHash: false })
@@ -28,8 +30,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         AppComponent
     ],
     bootstrap: [
-        AppComponent
-    ]
+        AppComponent 
+    ],
+    providers:[todoService,Store]
 })
 export class AppModule {
 }
