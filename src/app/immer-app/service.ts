@@ -4,8 +4,12 @@ import { Store } from "@ng-state/store";
 @Injectable()
 export class todoService{
 
-public constructor(store:Store<any>){
-    
-}
+    constructor(private store:Store<any>){
+        
+    }
+
+    test(){
+        console.log(this.store);
+    }
 
 }

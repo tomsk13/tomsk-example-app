@@ -27,6 +27,7 @@ export class TodosComponent extends HasStateActions<TodosStateActions> {
         super(cd);
         
         console.log(this.storeRef);
+        this.myService.test();
     }
 
     deleteItem(index: number) {
