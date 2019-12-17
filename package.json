@@ -49,7 +49,7 @@
     "@angular/service-worker": "7.1.4",
     "@ng-state/immer-data-strategy": "^1.0.0",
     "@ng-state/immutablejs-data-strategy": "^1.0.0",
-    "@ng-state/store": "^6.0.0",
+    "@ng-state/store": "^6.5.2",
     "@nguniversal/common": "7.1.1",
     "@nguniversal/express-engine": "7.1.1",
     "@nguniversal/module-map-ngfactory-loader": "7.1.1",

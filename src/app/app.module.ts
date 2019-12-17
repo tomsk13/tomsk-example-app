@@ -12,12 +12,11 @@ import { TodosComponent } from './immer-app/components/todos.component';
 import { ProductsComponent } from './immer-app/components/products/products.component';
 import { StorageTestComponent } from './immer-app/components/storage-test.component';
 import { RouterHistoryTestComponent } from './immer-app/components/router-history-test.component';
-import { StoreModule } from '@ng-state/store';
+import { StoreModule  } from '@ng-state/store';
 import { initialState } from './initial-state';
 import { ImmerDataStrategyModule } from '@ng-state/immer-data-strategy';
 import { TodoDescription } from './immer-app/components/todo-description.component';
 import { FiltersComponent } from './immer-app/components/products/filters/filters.component';
-import { todoService } from './immer-app/service';
 
 @NgModule({
     imports: [
@@ -58,11 +57,13 @@ import { todoService } from './immer-app/service';
             debugger: {
                 enableInitialDebugging: true,
                 options: {
-                    enableConsoleOutput: false
+                    enableConsoleOutput: false,
+                    enableDevToolsOutput :true
                 }
             },
             history: {
-                storeHistoryItems: 50
+                storeHistoryItems: 50,
+                collectHistory :true
             }
         }),
         ImmerDataStrategyModule

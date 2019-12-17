@@ -1,17 +1,15 @@
 import { Injectable } from "@angular/core";
-import { Store, Dispatcher } from "@ng-state/store";
-import { TodoStore, TodoModel } from "./actions/todo.model";
-import { expand, map, tap } from "rxjs/operators";
-import { timer } from "rxjs";
+import { TodoModel } from "./actions/todo.model";
+import { map, tap, concatMap, filter, switchMap } from "rxjs/operators";
+import { timer, of } from "rxjs";
 import { TodosActions } from "./actions/todos.actions";
 
 @Injectable({providedIn:'root'})
 export class todoService{
 
     constructor(private todoActions:TodosActions){
-        
     }
-
+cpt = 0;
     test(){
 
     }
@@ -19,15 +17,19 @@ export class todoService{
     loadTodos(): void {
         this.todoActions.setBusy(true);
 
-        timer(4000).pipe(
-            map(r => {
-                return [
+        this.todoActions.loadLocal().pipe(
+            tap(x => {
+                if (x.data)
+                    this.todoActions.setBusy(false);
+            }),
+            filter(x => !x.data),//continue if data is null
+            switchMap(x => timer(4000)),
+            map(r => [
                     { name: 'First To Do', description: 'This is my first ToDo' } as TodoModel,
                     { name: 'Second To Do', description: 'This is my second ToDo' } as TodoModel
-                ];
-            }),
+                ]),
             tap(r => {
-                console.log("yeah ");
+                //console.log("yeah ");
                 this.todoActions.initToDos(r);
                 this.todoActions.setBusy(false);
             })
@@ -39,6 +41,12 @@ export class todoService{
     }
 
     addTodo(todo:TodoModel) {
+        this.cpt++;
+        this.todoActions.tagState("test");
         this.todoActions.addTodo(todo);
+        timer(5000).pipe(
+            tap(_ => {if(this.cpt % 2 == 0) this.todoActions.revertToTag("test");})
+        ).subscribe();
+
     }
 }

@@ -1,4 +1,4 @@
-import { Message } from '@ng-state/store';
+import { Message, PersistStateParams } from '@ng-state/store';
 
 export class TodoModel {
     id: any;
@@ -26,9 +26,16 @@ export class ClearTodoMessage extends Message {
     }
 }
 
-export interface TodoStore {
-    list: TodoModel[],
-    isBusy:boolean,
-    isInit:boolean,
+export class TodoStore {
+    list: TodoModel[];
+    isBusy:boolean;
+    isInit:boolean;
+
+    
+    [key: string]: any; //allow dynamic properties
+
+    static persistParams:PersistStateParams = {
+        storageConfig:{ storage:sessionStorage, getKeys: () => Object.keys(sessionStorage)}
+    }
     
 }

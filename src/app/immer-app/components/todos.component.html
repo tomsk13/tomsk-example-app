@@ -13,6 +13,7 @@
     <br />
     <h3>{{selector.todosCount | async}} todos</h3>
     <h2 *ngIf="selector.isBusy | async">BUSY</h2>
+    <h2 *ngIf="selector.get('isBusy') | async">BUSY</h2>
     <table class="table"> 
         <thead>
             <tr>
