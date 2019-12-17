@@ -13,6 +13,9 @@ import { FiltersComponent } from './components/products/filters/filters.componen
 import { StorageTestComponent } from './components/storage-test.component';
 import { initialState } from '../initial-state';
 import { ImmerDataStrategyModule } from '@ng-state/immer-data-strategy';
+import { todoService } from './service';
+import { TodoStateActions } from './actions/todo.actions';
+import { TodosStateActions } from './actions/todos.actions';
 
 @NgModule({
     imports: [
@@ -41,7 +44,8 @@ import { ImmerDataStrategyModule } from '@ng-state/immer-data-strategy';
         ProductsComponent,
         FiltersComponent,
         StorageTestComponent
-    ]
+    ],
+    providers:[todoService]
 })
 export class ImmerAppModule {
 }

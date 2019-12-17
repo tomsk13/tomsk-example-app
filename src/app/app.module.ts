@@ -8,6 +8,15 @@ import { TransferHttpCacheModule } from '@nguniversal/common';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TodosComponent } from './immer-app/components/todos.component';
+import { ProductsComponent } from './immer-app/components/products/products.component';
+import { StorageTestComponent } from './immer-app/components/storage-test.component';
+import { RouterHistoryTestComponent } from './immer-app/components/router-history-test.component';
+import { StoreModule } from '@ng-state/store';
+import { initialState } from './initial-state';
+import { ImmerDataStrategyModule } from '@ng-state/immer-data-strategy';
+import { TodoDescription } from './immer-app/components/todo-description.component';
+import { FiltersComponent } from './immer-app/components/products/filters/filters.component';
 import { todoService } from './immer-app/service';
 
 @NgModule({
@@ -20,18 +29,56 @@ import { todoService } from './immer-app/service';
         FormsModule,
         ReactiveFormsModule,
         RouterModule.forRoot([
-            { path: '', pathMatch: 'full', redirectTo: 'immer' },
-            { path: 'immutable', loadChildren: './immutable-app/immutable.module#ImmutableAppModule' },
-            { path: 'immer', loadChildren: './immer-app/immer.module#ImmerAppModule' }
-        ], { useHash: false })
+            //{
+            // path: '',
+            // component: AppComponent,
+            // children: [
+                {
+                    path: '',
+                    component: TodosComponent
+                },
+                {
+                    path: 'forms',
+                    component: ProductsComponent
+                },
+                {
+                    path: 'storage',
+                    component: StorageTestComponent
+                },
+                {
+                    path: 'router-history-test',
+                    component: RouterHistoryTestComponent
+                }
+                // { path: '', pathMatch: 'full', redirectTo: 'immer' },
+                // { path: 'immutable', loadChildren: './immutable-app/immutable.module#ImmutableAppModule' },
+                // { path: 'immer', loadChildren: './immer-app/immer.module#ImmerAppModule' }
+        //]}
+    ], { useHash: false }),
+        StoreModule.provideStore(initialState, false, {
+            debugger: {
+                enableInitialDebugging: true,
+                options: {
+                    enableConsoleOutput: false
+                }
+            },
+            history: {
+                storeHistoryItems: 50
+            }
+        }),
+        ImmerDataStrategyModule
     ],
     declarations: [
-        AppComponent
+        AppComponent,
+        TodosComponent,
+        TodoDescription,
+        RouterHistoryTestComponent,
+        ProductsComponent,
+        FiltersComponent,
+        StorageTestComponent
     ],
     bootstrap: [
         AppComponent 
-    ],
-    providers:[todoService]
+    ]
 })
 export class AppModule {
 }

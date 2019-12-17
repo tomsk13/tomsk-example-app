@@ -25,3 +25,10 @@ export class ClearTodoMessage extends Message {
         super('ClearTodoMessages', payload);
     }
 }
+
+export interface TodoStore {
+    list: TodoModel[],
+    isBusy:boolean,
+    isInit:boolean,
+    
+}

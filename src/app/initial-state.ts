@@ -1,5 +1,11 @@
 export const initialState = {
-    todos: <any[]>[],
+    todos: { 
+        list : [
+        { name: 'First To Do', description: 'This is my first ToDo'}
+        ],
+        isBusy:false,
+        isInit:false,
+    },
     storage: {
         itemToStore: 'some value'
     },
